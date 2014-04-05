@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8CB89BC418F046A9008B20C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC318F046A9008B20C4 /* Foundation.framework */; };
+		8CB89BC618F046A9008B20C4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC518F046A9008B20C4 /* CoreGraphics.framework */; };
+		8CB89BC818F046A9008B20C4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC718F046A9008B20C4 /* UIKit.framework */; };
+		8CB89BCE18F046A9008B20C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BCC18F046A9008B20C4 /* InfoPlist.strings */; };
+		8CB89BD018F046A9008B20C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BCF18F046A9008B20C4 /* main.m */; };
+		8CB89BD418F046A9008B20C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BD318F046A9008B20C4 /* AppDelegate.m */; };
+		8CB89BD718F046A9008B20C4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BD518F046A9008B20C4 /* Main_iPhone.storyboard */; };
+		8CB89BDA18F046A9008B20C4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BD818F046A9008B20C4 /* Main_iPad.storyboard */; };
+		8CB89BDD18F046A9008B20C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BDC18F046A9008B20C4 /* ViewController.m */; };
+		8CB89BDF18F046A9008B20C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BDE18F046A9008B20C4 /* Images.xcassets */; };
+		8CB89BE618F046A9008B20C4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BE518F046A9008B20C4 /* XCTest.framework */; };
+		8CB89BE718F046A9008B20C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC318F046A9008B20C4 /* Foundation.framework */; };
+		8CB89BE818F046A9008B20C4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC718F046A9008B20C4 /* UIKit.framework */; };
+		8CB89BF018F046A9008B20C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BEE18F046A9008B20C4 /* InfoPlist.strings */; };
+		8CB89BF218F046A9008B20C4 /* TravelGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8CB89BE918F046A9008B20C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8CB89BB818F046A9008B20C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8CB89BBF18F046A9008B20C4;
+			remoteInfo = TravelGreen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8CB89BC018F046A9008B20C4 /* TravelGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB89BC318F046A9008B20C4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8CB89BC518F046A9008B20C4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8CB89BC718F046A9008B20C4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8CB89BCB18F046A9008B20C4 /* TravelGreen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravelGreen-Info.plist"; sourceTree = "<group>"; };
+		8CB89BCD18F046A9008B20C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8CB89BCF18F046A9008B20C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8CB89BD118F046A9008B20C4 /* TravelGreen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TravelGreen-Prefix.pch"; sourceTree = "<group>"; };
+		8CB89BD218F046A9008B20C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8CB89BD318F046A9008B20C4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8CB89BD618F046A9008B20C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		8CB89BD918F046A9008B20C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		8CB89BDB18F046A9008B20C4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8CB89BDC18F046A9008B20C4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8CB89BDE18F046A9008B20C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8CB89BE418F046A9008B20C4 /* TravelGreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelGreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB89BE518F046A9008B20C4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8CB89BED18F046A9008B20C4 /* TravelGreenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravelGreenTests-Info.plist"; sourceTree = "<group>"; };
+		8CB89BEF18F046A9008B20C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelGreenTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8CB89BBD18F046A9008B20C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB89BC618F046A9008B20C4 /* CoreGraphics.framework in Frameworks */,
+				8CB89BC818F046A9008B20C4 /* UIKit.framework in Frameworks */,
+				8CB89BC418F046A9008B20C4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CB89BE118F046A9008B20C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB89BE618F046A9008B20C4 /* XCTest.framework in Frameworks */,
+				8CB89BE818F046A9008B20C4 /* UIKit.framework in Frameworks */,
+				8CB89BE718F046A9008B20C4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8CB89BB718F046A9008B20C4 = {
+			isa = PBXGroup;
+			children = (
+				8CB89BC918F046A9008B20C4 /* TravelGreen */,
+				8CB89BEB18F046A9008B20C4 /* TravelGreenTests */,
+				8CB89BC218F046A9008B20C4 /* Frameworks */,
+				8CB89BC118F046A9008B20C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8CB89BC118F046A9008B20C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CB89BC018F046A9008B20C4 /* TravelGreen.app */,
+				8CB89BE418F046A9008B20C4 /* TravelGreenTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8CB89BC218F046A9008B20C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CB89BC318F046A9008B20C4 /* Foundation.framework */,
+				8CB89BC518F046A9008B20C4 /* CoreGraphics.framework */,
+				8CB89BC718F046A9008B20C4 /* UIKit.framework */,
+				8CB89BE518F046A9008B20C4 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8CB89BC918F046A9008B20C4 /* TravelGreen */ = {
+			isa = PBXGroup;
+			children = (
+				8CB89BD218F046A9008B20C4 /* AppDelegate.h */,
+				8CB89BD318F046A9008B20C4 /* AppDelegate.m */,
+				8CB89BD518F046A9008B20C4 /* Main_iPhone.storyboard */,
+				8CB89BD818F046A9008B20C4 /* Main_iPad.storyboard */,
+				8CB89BDB18F046A9008B20C4 /* ViewController.h */,
+				8CB89BDC18F046A9008B20C4 /* ViewController.m */,
+				8CB89BDE18F046A9008B20C4 /* Images.xcassets */,
+				8CB89BCA18F046A9008B20C4 /* Supporting Files */,
+			);
+			path = TravelGreen;
+			sourceTree = "<group>";
+		};
+		8CB89BCA18F046A9008B20C4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CB89BCB18F046A9008B20C4 /* TravelGreen-Info.plist */,
+				8CB89BCC18F046A9008B20C4 /* InfoPlist.strings */,
+				8CB89BCF18F046A9008B20C4 /* main.m */,
+				8CB89BD118F046A9008B20C4 /* TravelGreen-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8CB89BEB18F046A9008B20C4 /* TravelGreenTests */ = {
+			isa = PBXGroup;
+			children = (
+				8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */,
+				8CB89BEC18F046A9008B20C4 /* Supporting Files */,
+			);
+			path = TravelGreenTests;
+			sourceTree = "<group>";
+		};
+		8CB89BEC18F046A9008B20C4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8CB89BED18F046A9008B20C4 /* TravelGreenTests-Info.plist */,
+				8CB89BEE18F046A9008B20C4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8CB89BBF18F046A9008B20C4 /* TravelGreen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CB89BF518F046A9008B20C4 /* Build configuration list for PBXNativeTarget "TravelGreen" */;
+			buildPhases = (
+				8CB89BBC18F046A9008B20C4 /* Sources */,
+				8CB89BBD18F046A9008B20C4 /* Frameworks */,
+				8CB89BBE18F046A9008B20C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TravelGreen;
+			productName = TravelGreen;
+			productReference = 8CB89BC018F046A9008B20C4 /* TravelGreen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8CB89BE318F046A9008B20C4 /* TravelGreenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CB89BF818F046A9008B20C4 /* Build configuration list for PBXNativeTarget "TravelGreenTests" */;
+			buildPhases = (
+				8CB89BE018F046A9008B20C4 /* Sources */,
+				8CB89BE118F046A9008B20C4 /* Frameworks */,
+				8CB89BE218F046A9008B20C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CB89BEA18F046A9008B20C4 /* PBXTargetDependency */,
+			);
+			name = TravelGreenTests;
+			productName = TravelGreenTests;
+			productReference = 8CB89BE418F046A9008B20C4 /* TravelGreenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8CB89BB818F046A9008B20C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Hackathon;
+				TargetAttributes = {
+					8CB89BE318F046A9008B20C4 = {
+						TestTargetID = 8CB89BBF18F046A9008B20C4;
+					};
+				};
+			};
+			buildConfigurationList = 8CB89BBB18F046A9008B20C4 /* Build configuration list for PBXProject "TravelGreen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8CB89BB718F046A9008B20C4;
+			productRefGroup = 8CB89BC118F046A9008B20C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8CB89BBF18F046A9008B20C4 /* TravelGreen */,
+				8CB89BE318F046A9008B20C4 /* TravelGreenTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8CB89BBE18F046A9008B20C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB89BDA18F046A9008B20C4 /* Main_iPad.storyboard in Resources */,
+				8CB89BDF18F046A9008B20C4 /* Images.xcassets in Resources */,
+				8CB89BD718F046A9008B20C4 /* Main_iPhone.storyboard in Resources */,
+				8CB89BCE18F046A9008B20C4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CB89BE218F046A9008B20C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB89BF018F046A9008B20C4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8CB89BBC18F046A9008B20C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB89BDD18F046A9008B20C4 /* ViewController.m in Sources */,
+				8CB89BD418F046A9008B20C4 /* AppDelegate.m in Sources */,
+				8CB89BD018F046A9008B20C4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CB89BE018F046A9008B20C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CB89BF218F046A9008B20C4 /* TravelGreenTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8CB89BEA18F046A9008B20C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8CB89BBF18F046A9008B20C4 /* TravelGreen */;
+			targetProxy = 8CB89BE918F046A9008B20C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8CB89BCC18F046A9008B20C4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CB89BCD18F046A9008B20C4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8CB89BD518F046A9008B20C4 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CB89BD618F046A9008B20C4 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8CB89BD818F046A9008B20C4 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CB89BD918F046A9008B20C4 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		8CB89BEE18F046A9008B20C4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CB89BEF18F046A9008B20C4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8CB89BF318F046A9008B20C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8CB89BF418F046A9008B20C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8CB89BF618F046A9008B20C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravelGreen/TravelGreen-Prefix.pch";
+				INFOPLIST_FILE = "TravelGreen/TravelGreen-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8CB89BF718F046A9008B20C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravelGreen/TravelGreen-Prefix.pch";
+				INFOPLIST_FILE = "TravelGreen/TravelGreen-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8CB89BF918F046A9008B20C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravelGreen.app/TravelGreen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravelGreen/TravelGreen-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TravelGreenTests/TravelGreenTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8CB89BFA18F046A9008B20C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TravelGreen.app/TravelGreen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravelGreen/TravelGreen-Prefix.pch";
+				INFOPLIST_FILE = "TravelGreenTests/TravelGreenTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8CB89BBB18F046A9008B20C4 /* Build configuration list for PBXProject "TravelGreen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CB89BF318F046A9008B20C4 /* Debug */,
+				8CB89BF418F046A9008B20C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CB89BF518F046A9008B20C4 /* Build configuration list for PBXNativeTarget "TravelGreen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CB89BF618F046A9008B20C4 /* Debug */,
+				8CB89BF718F046A9008B20C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8CB89BF818F046A9008B20C4 /* Build configuration list for PBXNativeTarget "TravelGreenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CB89BF918F046A9008B20C4 /* Debug */,
+				8CB89BFA18F046A9008B20C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8CB89BB818F046A9008B20C4 /* Project object */;
+}
