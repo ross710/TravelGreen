@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <UITableViewDelegate , UITableViewDataSource, UITextFieldDelegate>
+
 
 @end

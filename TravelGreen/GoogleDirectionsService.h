@@ -10,4 +10,15 @@
 
 @interface GoogleDirectionsService : NSObject
 
+-(void) queryAutocomplete: (NSString*) searchTerm
+            withLatitude : (CGFloat) latitude
+            andLongitude : (CGFloat) longitude
+            withSelector : (SEL) selector
+             andDelegate : (id) delegate;
+
+-(void) querySearch: (NSString*) searchTerm
+      withLatitude : (CGFloat) latitude
+      andLongitude : (CGFloat) longitude
+      withSelector : (SEL) selector
+       andDelegate : (id) delegate;
 @end
