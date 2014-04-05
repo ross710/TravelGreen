@@ -13,15 +13,30 @@
 		8CB89BCE18F046A9008B20C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BCC18F046A9008B20C4 /* InfoPlist.strings */; };
 		8CB89BD018F046A9008B20C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BCF18F046A9008B20C4 /* main.m */; };
 		8CB89BD418F046A9008B20C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BD318F046A9008B20C4 /* AppDelegate.m */; };
-		8CB89BD718F046A9008B20C4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BD518F046A9008B20C4 /* Main_iPhone.storyboard */; };
 		8CB89BDA18F046A9008B20C4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BD818F046A9008B20C4 /* Main_iPad.storyboard */; };
-		8CB89BDD18F046A9008B20C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BDC18F046A9008B20C4 /* ViewController.m */; };
+		8CB89BDD18F046A9008B20C4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BDC18F046A9008B20C4 /* MapViewController.m */; };
 		8CB89BDF18F046A9008B20C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BDE18F046A9008B20C4 /* Images.xcassets */; };
 		8CB89BE618F046A9008B20C4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BE518F046A9008B20C4 /* XCTest.framework */; };
 		8CB89BE718F046A9008B20C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC318F046A9008B20C4 /* Foundation.framework */; };
 		8CB89BE818F046A9008B20C4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC718F046A9008B20C4 /* UIKit.framework */; };
 		8CB89BF018F046A9008B20C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BEE18F046A9008B20C4 /* InfoPlist.strings */; };
 		8CB89BF218F046A9008B20C4 /* TravelGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */; };
+		91DA8C9018F05986009CC256 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */; };
+		91DA8C9318F05BB0009CC256 /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */; };
+		91E0E4DE18F04C2400513034 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4DD18F04C2400513034 /* GoogleMaps.framework */; };
+		91E0E4E018F04CE600513034 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 91E0E4DF18F04CE600513034 /* GoogleMaps.bundle */; };
+		91E0E4E218F04D1700513034 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4E118F04D1700513034 /* AVFoundation.framework */; };
+		91E0E4E418F04D1C00513034 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4E318F04D1C00513034 /* CoreData.framework */; };
+		91E0E4E618F04D2300513034 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4E518F04D2300513034 /* CoreLocation.framework */; };
+		91E0E4E818F04D2B00513034 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4E718F04D2B00513034 /* CoreText.framework */; };
+		91E0E4EA18F04D3200513034 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4E918F04D3200513034 /* GLKit.framework */; };
+		91E0E4EC18F04D3A00513034 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4EB18F04D3A00513034 /* ImageIO.framework */; };
+		91E0E4EE18F04D4300513034 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4ED18F04D4300513034 /* libc++.dylib */; };
+		91E0E4F018F04D6800513034 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4EF18F04D6800513034 /* libicucore.dylib */; };
+		91E0E4F218F04D9800513034 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4F118F04D9800513034 /* libz.dylib */; };
+		91E0E4F418F04D9F00513034 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4F318F04D9F00513034 /* OpenGLES.framework */; };
+		91E0E4F618F04DA400513034 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4F518F04DA400513034 /* QuartzCore.framework */; };
+		91E0E4F818F04DAC00513034 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4F718F04DAC00513034 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,16 +60,32 @@
 		8CB89BD118F046A9008B20C4 /* TravelGreen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TravelGreen-Prefix.pch"; sourceTree = "<group>"; };
 		8CB89BD218F046A9008B20C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8CB89BD318F046A9008B20C4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8CB89BD618F046A9008B20C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		8CB89BD918F046A9008B20C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		8CB89BDB18F046A9008B20C4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8CB89BDC18F046A9008B20C4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8CB89BDB18F046A9008B20C4 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		8CB89BDC18F046A9008B20C4 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		8CB89BDE18F046A9008B20C4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8CB89BE418F046A9008B20C4 /* TravelGreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelGreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB89BE518F046A9008B20C4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8CB89BED18F046A9008B20C4 /* TravelGreenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravelGreenTests-Info.plist"; sourceTree = "<group>"; };
 		8CB89BEF18F046A9008B20C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelGreenTests.m; sourceTree = "<group>"; };
+		91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		91DA8C9118F05BB0009CC256 /* GoogleDirectionsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleDirectionsService.h; sourceTree = "<group>"; };
+		91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleDirectionsService.m; sourceTree = "<group>"; };
+		91E0E4DD18F04C2400513034 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		91E0E4DF18F04CE600513034 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		91E0E4E118F04D1700513034 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		91E0E4E318F04D1C00513034 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		91E0E4E518F04D2300513034 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		91E0E4E718F04D2B00513034 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		91E0E4E918F04D3200513034 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		91E0E4EB18F04D3A00513034 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		91E0E4ED18F04D4300513034 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		91E0E4EF18F04D6800513034 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		91E0E4F118F04D9800513034 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		91E0E4F318F04D9F00513034 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		91E0E4F518F04DA400513034 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		91E0E4F718F04DAC00513034 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +93,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E0E4F818F04DAC00513034 /* SystemConfiguration.framework in Frameworks */,
+				91E0E4F618F04DA400513034 /* QuartzCore.framework in Frameworks */,
+				91E0E4F418F04D9F00513034 /* OpenGLES.framework in Frameworks */,
+				91E0E4F218F04D9800513034 /* libz.dylib in Frameworks */,
+				91E0E4F018F04D6800513034 /* libicucore.dylib in Frameworks */,
+				91E0E4EE18F04D4300513034 /* libc++.dylib in Frameworks */,
+				91E0E4EC18F04D3A00513034 /* ImageIO.framework in Frameworks */,
+				91E0E4EA18F04D3200513034 /* GLKit.framework in Frameworks */,
+				91E0E4E818F04D2B00513034 /* CoreText.framework in Frameworks */,
+				91E0E4E618F04D2300513034 /* CoreLocation.framework in Frameworks */,
+				91E0E4E418F04D1C00513034 /* CoreData.framework in Frameworks */,
+				91E0E4E218F04D1700513034 /* AVFoundation.framework in Frameworks */,
 				8CB89BC618F046A9008B20C4 /* CoreGraphics.framework in Frameworks */,
 				8CB89BC818F046A9008B20C4 /* UIKit.framework in Frameworks */,
+				91E0E4DE18F04C2400513034 /* GoogleMaps.framework in Frameworks */,
 				8CB89BC418F046A9008B20C4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +147,20 @@
 		8CB89BC218F046A9008B20C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91E0E4F718F04DAC00513034 /* SystemConfiguration.framework */,
+				91E0E4F518F04DA400513034 /* QuartzCore.framework */,
+				91E0E4F318F04D9F00513034 /* OpenGLES.framework */,
+				91E0E4F118F04D9800513034 /* libz.dylib */,
+				91E0E4EF18F04D6800513034 /* libicucore.dylib */,
+				91E0E4ED18F04D4300513034 /* libc++.dylib */,
+				91E0E4EB18F04D3A00513034 /* ImageIO.framework */,
+				91E0E4E918F04D3200513034 /* GLKit.framework */,
+				91E0E4E718F04D2B00513034 /* CoreText.framework */,
+				91E0E4E518F04D2300513034 /* CoreLocation.framework */,
+				91E0E4E318F04D1C00513034 /* CoreData.framework */,
+				91E0E4E118F04D1700513034 /* AVFoundation.framework */,
+				91E0E4DF18F04CE600513034 /* GoogleMaps.bundle */,
+				91E0E4DD18F04C2400513034 /* GoogleMaps.framework */,
 				8CB89BC318F046A9008B20C4 /* Foundation.framework */,
 				8CB89BC518F046A9008B20C4 /* CoreGraphics.framework */,
 				8CB89BC718F046A9008B20C4 /* UIKit.framework */,
@@ -116,10 +174,12 @@
 			children = (
 				8CB89BD218F046A9008B20C4 /* AppDelegate.h */,
 				8CB89BD318F046A9008B20C4 /* AppDelegate.m */,
-				8CB89BD518F046A9008B20C4 /* Main_iPhone.storyboard */,
+				91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */,
 				8CB89BD818F046A9008B20C4 /* Main_iPad.storyboard */,
-				8CB89BDB18F046A9008B20C4 /* ViewController.h */,
-				8CB89BDC18F046A9008B20C4 /* ViewController.m */,
+				8CB89BDB18F046A9008B20C4 /* MapViewController.h */,
+				8CB89BDC18F046A9008B20C4 /* MapViewController.m */,
+				91DA8C9118F05BB0009CC256 /* GoogleDirectionsService.h */,
+				91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */,
 				8CB89BDE18F046A9008B20C4 /* Images.xcassets */,
 				8CB89BCA18F046A9008B20C4 /* Supporting Files */,
 			);
@@ -233,8 +293,9 @@
 			files = (
 				8CB89BDA18F046A9008B20C4 /* Main_iPad.storyboard in Resources */,
 				8CB89BDF18F046A9008B20C4 /* Images.xcassets in Resources */,
-				8CB89BD718F046A9008B20C4 /* Main_iPhone.storyboard in Resources */,
+				91DA8C9018F05986009CC256 /* Main_iPhone.storyboard in Resources */,
 				8CB89BCE18F046A9008B20C4 /* InfoPlist.strings in Resources */,
+				91E0E4E018F04CE600513034 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,8 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CB89BDD18F046A9008B20C4 /* ViewController.m in Sources */,
+				8CB89BDD18F046A9008B20C4 /* MapViewController.m in Sources */,
 				8CB89BD418F046A9008B20C4 /* AppDelegate.m in Sources */,
+				91DA8C9318F05BB0009CC256 /* GoogleDirectionsService.m in Sources */,
 				8CB89BD018F046A9008B20C4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,14 +346,6 @@
 				8CB89BCD18F046A9008B20C4 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8CB89BD518F046A9008B20C4 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8CB89BD618F046A9008B20C4 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		8CB89BD818F046A9008B20C4 /* Main_iPad.storyboard */ = {
@@ -390,9 +444,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravelGreen/TravelGreen-Prefix.pch";
 				INFOPLIST_FILE = "TravelGreen/TravelGreen-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -403,9 +462,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravelGreen/TravelGreen-Prefix.pch";
 				INFOPLIST_FILE = "TravelGreen/TravelGreen-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -470,6 +534,7 @@
 				8CB89BF718F046A9008B20C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8CB89BF818F046A9008B20C4 /* Build configuration list for PBXNativeTarget "TravelGreenTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +543,7 @@
 				8CB89BFA18F046A9008B20C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
