@@ -100,6 +100,25 @@ static NSString *apiKey = @"AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8";
 
 }
 
+-(void) queryDirections: (NSString*) searchTerm
+      withLatitudeStart : (CGFloat) latitudeStart
+      andLongitudeStart : (CGFloat) longitudeStart
+        withLatitudeEnd : (CGFloat) latitudeEnd
+        andLongitudeEnd : (CGFloat) longitudeEnd
+      withSelector : (SEL) selector
+       andDelegate : (id) delegate {
+    
+//    NSString *requestString = [NSString
+//                               stringWithFormat:@"%@textsearch/json?input=%@&radius%ld&sensor=true&key=%@",
+//                               baseURL,
+//                               searchTerm,
+//                               (long)radius,
+//                               apiKey];
+//    
+//    [self query:requestString withLatitude:latitude andLongitude:longitude withSelector:selector andDelegate:delegate];
+    
+}
+
 
 - (void)recieveData: (NSData *) data withSelector: (SEL)selector withDelegate:(id)delegate{
     if (data == nil) {
