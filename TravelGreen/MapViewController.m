@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "GoogleDirectionsService.h"
+#import "DirectionsTableViewController.h"
 
 @interface MapViewController ()
 
@@ -26,10 +27,14 @@
     
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.hidden = YES;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.hidden = YES;
     
     
     // Create a GMSCameraPosition that tells the map to display the
@@ -103,6 +108,9 @@
                                     0);
     [routeButton_ setBackgroundColor:[UIColor whiteColor]];
     [routeButton_ setTitle:@"Route" forState:UIControlStateNormal];
+    [routeButton_ addTarget:self action:@selector(openList) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     [self.view addSubview:routeButton_];
     
     //    [self queryAutocomplete:@"FOOD" withLatitude:42.3581 andLongitude:-71.0636];
@@ -119,6 +127,30 @@
     //        NSLog(@"Can't use comgooglemaps-x-callback:// on this device.");
     //    }
     //
+    
+    
+    
+//    [gds_ queryDirections:@"transit" withLatitudeStart:42 andLongitudeStart:-71 withLatitudeEnd:42.4 andLongitudeEnd:-71 withSelector:@selector(hi:) andDelegate:self];
+    
+}
+
+//-(void) hi :(NSDictionary *) dict {
+//    NSLog(@"%@", dict);
+//}
+
+
+-(void) openList {
+
+    DirectionsTableViewController *directionView = [[DirectionsTableViewController alloc] initWithNibName:@"DirectionsTableView" bundle:[NSBundle mainBundle]];
+    directionView.title = @"Directions";
+    
+    CLLocationCoordinate2D start, end;
+    start.latitude = mapView_.myLocation.coordinate.latitude;
+    start.longitude = mapView_.myLocation.coordinate.longitude;
+    
+    end = mapView_.selectedMarker.position;
+    [directionView saveStartLocation:start andEndLocation:end];
+    [self.navigationController pushViewController:directionView animated:YES];
     
 }
 

@@ -23,6 +23,13 @@
 		8CB89BF218F046A9008B20C4 /* TravelGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */; };
 		91DA8C9018F05986009CC256 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */; };
 		91DA8C9318F05BB0009CC256 /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */; };
+		91DA8C9A18F0B776009CC256 /* DirectionsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C9818F0B776009CC256 /* DirectionsTableView.xib */; };
+		91DA8C9B18F0B776009CC256 /* DirectionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C9918F0B776009CC256 /* DirectionsTableViewCell.xib */; };
+		91DA8C9F18F0B7A9009CC256 /* DirectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DA8C9D18F0B7A9009CC256 /* DirectionsTableViewController.m */; };
+		91DA8CA018F0B7A9009CC256 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C9E18F0B7A9009CC256 /* yellow.png */; };
+		91DA8CA618F0B7BC009CC256 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DA8CA218F0B7BC009CC256 /* Route.m */; };
+		91DA8CA718F0B7BC009CC256 /* RouteDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DA8CA418F0B7BC009CC256 /* RouteDetailsViewController.m */; };
+		91DA8CA818F0B7BC009CC256 /* RouteDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8CA518F0B7BC009CC256 /* RouteDetailsViewController.xib */; };
 		91E0E4DE18F04C2400513034 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4DD18F04C2400513034 /* GoogleMaps.framework */; };
 		91E0E4E018F04CE600513034 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 91E0E4DF18F04CE600513034 /* GoogleMaps.bundle */; };
 		91E0E4E218F04D1700513034 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E0E4E118F04D1700513034 /* AVFoundation.framework */; };
@@ -72,6 +79,16 @@
 		91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		91DA8C9118F05BB0009CC256 /* GoogleDirectionsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleDirectionsService.h; sourceTree = "<group>"; };
 		91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleDirectionsService.m; sourceTree = "<group>"; };
+		91DA8C9818F0B776009CC256 /* DirectionsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectionsTableView.xib; sourceTree = "<group>"; };
+		91DA8C9918F0B776009CC256 /* DirectionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectionsTableViewCell.xib; sourceTree = "<group>"; };
+		91DA8C9C18F0B7A9009CC256 /* DirectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionsTableViewController.h; sourceTree = "<group>"; };
+		91DA8C9D18F0B7A9009CC256 /* DirectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionsTableViewController.m; sourceTree = "<group>"; };
+		91DA8C9E18F0B7A9009CC256 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		91DA8CA118F0B7BC009CC256 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		91DA8CA218F0B7BC009CC256 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		91DA8CA318F0B7BC009CC256 /* RouteDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteDetailsViewController.h; sourceTree = "<group>"; };
+		91DA8CA418F0B7BC009CC256 /* RouteDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteDetailsViewController.m; sourceTree = "<group>"; };
+		91DA8CA518F0B7BC009CC256 /* RouteDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteDetailsViewController.xib; sourceTree = "<group>"; };
 		91E0E4DD18F04C2400513034 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		91E0E4DF18F04CE600513034 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		91E0E4E118F04D1700513034 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -180,6 +197,15 @@
 				8CB89BDC18F046A9008B20C4 /* MapViewController.m */,
 				91DA8C9118F05BB0009CC256 /* GoogleDirectionsService.h */,
 				91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */,
+				91DA8C9C18F0B7A9009CC256 /* DirectionsTableViewController.h */,
+				91DA8C9D18F0B7A9009CC256 /* DirectionsTableViewController.m */,
+				91DA8CA118F0B7BC009CC256 /* Route.h */,
+				91DA8CA218F0B7BC009CC256 /* Route.m */,
+				91DA8CA318F0B7BC009CC256 /* RouteDetailsViewController.h */,
+				91DA8CA418F0B7BC009CC256 /* RouteDetailsViewController.m */,
+				91DA8CA518F0B7BC009CC256 /* RouteDetailsViewController.xib */,
+				91DA8C9E18F0B7A9009CC256 /* yellow.png */,
+				91DA8C9718F0B765009CC256 /* XIBs */,
 				8CB89BDE18F046A9008B20C4 /* Images.xcassets */,
 				8CB89BCA18F046A9008B20C4 /* Supporting Files */,
 			);
@@ -213,6 +239,15 @@
 				8CB89BEE18F046A9008B20C4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		91DA8C9718F0B765009CC256 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				91DA8C9818F0B776009CC256 /* DirectionsTableView.xib */,
+				91DA8C9918F0B776009CC256 /* DirectionsTableViewCell.xib */,
+			);
+			name = XIBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,9 +327,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CB89BDA18F046A9008B20C4 /* Main_iPad.storyboard in Resources */,
+				91DA8CA018F0B7A9009CC256 /* yellow.png in Resources */,
+				91DA8C9A18F0B776009CC256 /* DirectionsTableView.xib in Resources */,
 				8CB89BDF18F046A9008B20C4 /* Images.xcassets in Resources */,
 				91DA8C9018F05986009CC256 /* Main_iPhone.storyboard in Resources */,
+				91DA8C9B18F0B776009CC256 /* DirectionsTableViewCell.xib in Resources */,
 				8CB89BCE18F046A9008B20C4 /* InfoPlist.strings in Resources */,
+				91DA8CA818F0B7BC009CC256 /* RouteDetailsViewController.xib in Resources */,
 				91E0E4E018F04CE600513034 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,8 +354,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CB89BDD18F046A9008B20C4 /* MapViewController.m in Sources */,
+				91DA8C9F18F0B7A9009CC256 /* DirectionsTableViewController.m in Sources */,
 				8CB89BD418F046A9008B20C4 /* AppDelegate.m in Sources */,
+				91DA8CA618F0B7BC009CC256 /* Route.m in Sources */,
 				91DA8C9318F05BB0009CC256 /* GoogleDirectionsService.m in Sources */,
+				91DA8CA718F0B7BC009CC256 /* RouteDetailsViewController.m in Sources */,
 				8CB89BD018F046A9008B20C4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

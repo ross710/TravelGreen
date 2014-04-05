@@ -21,4 +21,13 @@
       andLongitude : (CGFloat) longitude
       withSelector : (SEL) selector
        andDelegate : (id) delegate;
+
+-(void) queryDirections: (NSString*) mode
+     withLatitudeStart : (CGFloat) latitudeStart
+     andLongitudeStart : (CGFloat) longitudeStart
+       withLatitudeEnd : (CGFloat) latitudeEnd
+       andLongitudeEnd : (CGFloat) longitudeEnd
+          withSelector : (SEL) selector
+           andDelegate : (id) delegate;
 @end
+

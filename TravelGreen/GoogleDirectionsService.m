@@ -15,7 +15,7 @@
 }
 
 static NSString *baseGoogleMapsURL = @"http://maps.googleapis.com/maps/api/directions/json?";
-static NSString *baseURL = @"https://maps.googleapis.com/maps/api/place/";
+static NSString *baseURL = @"https://maps.googleapis.com/maps/api/";
 static NSString *apiKey = @"AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8";
 
 //https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Amoeba&types=establishment&location=37.76999,-122.44696&radius=500&sensor=true&key=AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8
@@ -45,7 +45,7 @@ static NSString *apiKey = @"AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8";
         NSInteger radius = 2;
 
         NSString *requestString = [NSString
-                                   stringWithFormat:@"%@autocomplete/json?input=%@&location=%f,%f&radius%ld&sensor=true&key=%@",
+                                   stringWithFormat:@"%@place/autocomplete/json?input=%@&location=%f,%f&radius%ld&sensor=true&key=%@",
                                    baseURL,
                                    searchTerm,
                                    latitude,
@@ -53,15 +53,13 @@ static NSString *apiKey = @"AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8";
                                    (long)radius,
                                    apiKey];
 
-        [self query:requestString withLatitude:latitude andLongitude:longitude withSelector:selector andDelegate:delegate];
+        [self query:requestString withSelector:selector andDelegate:delegate];
     }
 }
 //https://maps.googleapis.com/maps/api/place/textsearch/xml?query=restaurants+in+Sydney&sensor=true&key=AddYourOwnKeyHere
 //https://maps.googleapis.com/maps/api/place/textsearch/json?query=Market+Basket,+Somerville+Avenue,+Somerville,+MA,+United+States&location=42.381382,-71.103798&radius2&key=AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8
 
 -(void) query: (NSString*) requestString
-    withLatitude : (CGFloat) latitude
-    andLongitude : (CGFloat) longitude
     withSelector : (SEL) selector
     andDelegate : (id) delegate{
     
@@ -90,32 +88,45 @@ static NSString *apiKey = @"AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8";
     NSInteger radius = 2;
     
     NSString *requestString = [NSString
-                               stringWithFormat:@"%@textsearch/json?input=%@&radius%ld&sensor=true&key=%@",
+                               stringWithFormat:@"%@place/textsearch/json?input=%@&radius%ld&sensor=true&key=%@",
                                baseURL,
                                searchTerm,
                                (long)radius,
                                apiKey];
     
-    [self query:requestString withLatitude:latitude andLongitude:longitude withSelector:selector andDelegate:delegate];
+    [self query:requestString withSelector:selector andDelegate:delegate];
 
 }
 
--(void) queryDirections: (NSString*) searchTerm
+-(void) queryDirections: (NSString*) mode
       withLatitudeStart : (CGFloat) latitudeStart
       andLongitudeStart : (CGFloat) longitudeStart
         withLatitudeEnd : (CGFloat) latitudeEnd
         andLongitudeEnd : (CGFloat) longitudeEnd
       withSelector : (SEL) selector
        andDelegate : (id) delegate {
+    /*
+     * Modes:
+     * driving
+     * walking
+     * transit
+     * bicycling
+     */
     
-//    NSString *requestString = [NSString
-//                               stringWithFormat:@"%@textsearch/json?input=%@&radius%ld&sensor=true&key=%@",
-//                               baseURL,
-//                               searchTerm,
-//                               (long)radius,
-//                               apiKey];
-//    
-//    [self query:requestString withLatitude:latitude andLongitude:longitude withSelector:selector andDelegate:delegate];
+    NSTimeInterval departure_time = [[NSDate date] timeIntervalSince1970];
+    
+    NSString *requestString = [NSString
+                               stringWithFormat:@"%@directions/json?origin=%f,%f&destination=%f,%f&mode=%@&departure_time%ld&sensor=false&key=%@",
+                               baseURL,
+                               latitudeStart,
+                               longitudeStart,
+                               latitudeEnd,
+                               longitudeEnd,
+                               mode,
+                               (long)departure_time,
+                               apiKey];
+    
+    [self query:requestString withSelector:selector andDelegate:delegate];
     
 }
 
