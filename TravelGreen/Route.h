@@ -28,5 +28,7 @@
 +(int) walkCals:(double) distanceInMiles;
 +(int) bikeCals: (int) weight andDistance: (double) distance;
 +(double) treeAcres_inOneDay:(double) c_emmision;
-
++(NSString *) bikeFunFact: (NSInteger) carbon withMPG: (NSInteger) mpg andDistance: (NSInteger) distance;
++(NSString *) walkFunFact: (NSInteger) carbon withMPG: (NSInteger) mpg andDistance: (NSInteger) distance;
++(NSString *) carFunFact: (NSInteger) carbon withMPG: (NSInteger) mpg andDistance: (NSInteger) distance;
 @end

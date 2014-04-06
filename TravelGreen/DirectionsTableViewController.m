@@ -325,7 +325,7 @@
     UILabel *factLbl = (UILabel *) [cell viewWithTag:10];
     
     
-    factLbl.text = @"Emissions come up to: ";
+//    factLbl.text = @"Emissions come up to: ";
 
     [directionsButton addTarget:self action:@selector(gotoGoogleMaps:) forControlEvents:UIControlEventTouchUpInside];
     [submitButton addTarget:self action:@selector(onSubmit:) forControlEvents:UIControlEventTouchUpInside];
@@ -344,7 +344,7 @@
         money.backgroundColor = [UIColor colorWithRed:255.0/255 green:59.0/255 blue:48.0/255 alpha:0.9];
         CGFloat moneySpent = [Route gasMoney:0 andDistance:route.distance];
         money.text = [NSString stringWithFormat:@"-$%.2f", moneySpent];
-
+        factLbl.text = [Route carFunFact:route.carbonEmmision withMPG:0 andDistance:route.distance];
     } else if ([route.modeOfTransport isEqualToString:@"WALKING"]) {
         [imageView setImage:[UIImage imageNamed:@"walking.png"]];
         CGFloat calories = [Route walkCals:route.distance];
@@ -353,18 +353,21 @@
 
         money.backgroundColor = [UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9];
 
+        factLbl.text = [Route walkFunFact:route.carbonEmmision withMPG:0 andDistance:route.distance];
     } else if ([route.modeOfTransport isEqualToString:@"TRANSIT"]) {
         [imageView setImage:[UIImage imageNamed:@"transit.png"]];
         money.backgroundColor = [UIColor colorWithRed:255.0/255 green:59.0/255 blue:48.0/255 alpha:0.9];
         money.text = [NSString stringWithFormat:@"-$%.2f", 2.00];
 
-
+       factLbl.text = @"You're saving a lot of money by not driving";
     } else {
         [imageView setImage:[UIImage imageNamed:@"cycling.png"]];
         money.backgroundColor = [UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9];
 
         CGFloat calories = [Route bikeCals:0 andDistance:route.distance];
         [caloriesLbl setText:[NSString stringWithFormat:@"%d", (int)calories]];
+        
+        factLbl.text = [Route bikeFunFact:route.carbonEmmision withMPG:0 andDistance:route.distance];
     }
 //    switch(route.levelOfHarm) {
 //        case 1:

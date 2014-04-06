@@ -33,6 +33,8 @@
 		9159F35818F19A350077A4E2 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F35218F19A350077A4E2 /* profile@2x.png */; };
 		9159F35918F19A350077A4E2 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F35318F19A350077A4E2 /* map.png */; };
 		9159F35C18F1AE3A0077A4E2 /* LeaderboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9159F35B18F1AE3A0077A4E2 /* LeaderboardController.m */; };
+		9159F35F18F1C6000077A4E2 /* iphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F35D18F1C5FF0077A4E2 /* iphone5@2x.png */; };
+		9159F36018F1C6000077A4E2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F35E18F1C6000077A4E2 /* icon@2x.png */; };
 		915DFFCB18F0F8BB003A54A1 /* walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC718F0F8BB003A54A1 /* walking.png */; };
 		915DFFCC18F0F8BB003A54A1 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC818F0F8BB003A54A1 /* car.png */; };
 		915DFFCD18F0F8BB003A54A1 /* cycling.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC918F0F8BB003A54A1 /* cycling.png */; };
@@ -111,6 +113,8 @@
 		9159F35318F19A350077A4E2 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		9159F35A18F1AE3A0077A4E2 /* LeaderboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardController.h; sourceTree = "<group>"; };
 		9159F35B18F1AE3A0077A4E2 /* LeaderboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardController.m; sourceTree = "<group>"; };
+		9159F35D18F1C5FF0077A4E2 /* iphone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone5@2x.png"; sourceTree = "<group>"; };
+		9159F35E18F1C6000077A4E2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		915DFFC718F0F8BB003A54A1 /* walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walking.png; sourceTree = "<group>"; };
 		915DFFC818F0F8BB003A54A1 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		915DFFC918F0F8BB003A54A1 /* cycling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycling.png; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 		915DFFC618F0F8AE003A54A1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9159F35D18F1C5FF0077A4E2 /* iphone5@2x.png */,
+				9159F35E18F1C6000077A4E2 /* icon@2x.png */,
 				9159F34E18F19A350077A4E2 /* map@2x.png */,
 				9159F35318F19A350077A4E2 /* map.png */,
 				9159F34F18F19A350077A4E2 /* leaderboard@2x.png */,
@@ -414,8 +420,10 @@
 				915DFFCB18F0F8BB003A54A1 /* walking.png in Resources */,
 				9159F35818F19A350077A4E2 /* profile@2x.png in Resources */,
 				91DA8CA818F0B7BC009CC256 /* RouteDetailsViewController.xib in Resources */,
+				9159F36018F1C6000077A4E2 /* icon@2x.png in Resources */,
 				9159F35918F19A350077A4E2 /* map.png in Resources */,
 				915DFFCC18F0F8BB003A54A1 /* car.png in Resources */,
+				9159F35F18F1C6000077A4E2 /* iphone5@2x.png in Resources */,
 				915DFFCE18F0F8BB003A54A1 /* transit.png in Resources */,
 				9159F35518F19A350077A4E2 /* leaderboard@2x.png in Resources */,
 				91E0E4E018F04CE600513034 /* GoogleMaps.bundle in Resources */,

@@ -88,7 +88,6 @@
 //        [self switchToEmissions];
 //    }
 //
-    NSLog(@"SWITCH");
     [self.tableView reloadData];
 }
 
@@ -126,8 +125,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"Current array %d", [currentArray count]);
-    // Return the number of sections.
     return [currentArray count];
 }
 
@@ -152,7 +149,9 @@
         NSInteger cals = [Route walkCals:user.milesWalked] + [Route bikeCals:user.bikeMpg andDistance:user.milesBiked];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Calories Burned", (long)cals];
     } else {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld Trees Saved", (long)user.treesDestroyed];
+        cell.detailTextLabel.numberOfLines = 0;
+        cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld days for an acre of trees to\n offset carbon emissions", (long)user.treesDestroyed];
     }
 
     // Configure the cell...
@@ -160,7 +159,9 @@
     return cell;
 }
 
-
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

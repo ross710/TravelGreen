@@ -16,6 +16,19 @@
 {
     [GMSServices provideAPIKey:@"AIzaSyBeiruW8tn-9bwuHNqp65nkF7LKc7dCfmE"];
     
+    
+    self.user = [[User alloc] init];
+    self.user.username = @"Ross";
+    self.user.carMpg = 21;
+    self.user.weight = 180;
+    self.user.sex = @"male";
+    self.user.bikeMpg = 20;
+    self.user.carbonEmission = 20343;
+    self.user.milesWalked = 5;
+    self.user.milesBiked = 50;
+    self.user.milesDriven = 200;
+    self.user.milesPt = 2;
+    
     LoginViewController *lvc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
 //    self.window.rootViewController = lvc;
 
