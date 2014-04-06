@@ -130,7 +130,7 @@
     
     
     
-//    [gds_ queryDirections:@"transit" withLatitudeStart:42 andLongitudeStart:-71 withLatitudeEnd:42.4 andLongitudeEnd:-71 withSelector:@selector(hi:) andDelegate:self];
+//    [gds_ queryDirections:@"driving" withLatitudeStart:42 andLongitudeStart:-71 withLatitudeEnd:42.4 andLongitudeEnd:-71 withSelector:@selector(hi:) andDelegate:self];
     
 }
 
@@ -142,11 +142,16 @@
 -(void) openList {
 
     DirectionsTableViewController *directionView = [[DirectionsTableViewController alloc] initWithNibName:@"DirectionsTableView" bundle:[NSBundle mainBundle]];
-    directionView.title = @"Directions";
+    directionView.title = @"Routes";
     
     CLLocationCoordinate2D start, end;
-    start.latitude = mapView_.myLocation.coordinate.latitude;
-    start.longitude = mapView_.myLocation.coordinate.longitude;
+    if (mapView_.myLocation.coordinate.latitude == 0) {
+        start.latitude = 42.3581;
+        start.longitude = -71.0636;
+    } else {
+        start.latitude = mapView_.myLocation.coordinate.latitude;
+        start.longitude = mapView_.myLocation.coordinate.longitude;
+    }
     
     end = mapView_.selectedMarker.position;
     [directionView saveStartLocation:start andEndLocation:end];
@@ -314,7 +319,6 @@
         [self.view endEditing:YES];
         
         NSDictionary *result = [results objectAtIndex:0];
-        
         NSDictionary *location = [[result objectForKey:@"geometry"] objectForKey:@"location"];
         
         CLLocationCoordinate2D coordinate;

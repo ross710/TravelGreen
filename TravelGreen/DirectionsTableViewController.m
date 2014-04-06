@@ -8,6 +8,9 @@
 
 #import "DirectionsTableViewController.h"
 #import "Route.h"
+#import "GoogleDirectionsService.h"
+#import "AppDelegate.h"
+
 
 @interface DirectionsTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableViewCell *directionCell;
@@ -18,6 +21,10 @@
 @implementation DirectionsTableViewController {
     CLLocationCoordinate2D start_;
     CLLocationCoordinate2D end_;
+    UIActivityIndicatorView *loadingView_;
+    NSInteger count;
+    NSInteger selectedRowIndex;
+
 }
 
 @synthesize dataSource;
@@ -27,6 +34,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -34,7 +42,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    selectedRowIndex = -1;
+    count = 0;
+    [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
     self.navigationController.navigationBar.hidden = NO;
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    NSInteger sideDimension = 64;
+    
+//    loadingView_ = [[UIActivityIndicatorView alloc]
+//                    initWithFrame:CGRectMake(screenWidth/2 - sideDimension/2, screenHeight/2 - sideDimension/2, sideDimension, sideDimension)];
+    loadingView_ = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    loadingView_.frame = CGRectMake(screenWidth/2 - sideDimension/2, screenHeight/2 - sideDimension/2, sideDimension, sideDimension);
+    [loadingView_.layer setCornerRadius:4.0];
+    [loadingView_ startAnimating];
+    [loadingView_ setBackgroundColor:[UIColor colorWithWhite:0.7 alpha:0.7]];
+    
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    UIWindow *window = delegate.window;
+
+    [window addSubview: loadingView_];
     //this.tableView.cell.
     
     // Uncomment the following line to preserve selection between presentations.
@@ -44,10 +74,90 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 70;
+-(void) viewWillDisappear:(BOOL)animated {
+    [self hideLoadingView];
 }
+-(void) hideLoadingView {
+    [loadingView_ stopAnimating];
+    [loadingView_ removeFromSuperview];
+    loadingView_ = nil;
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [self populateRoutes];
+}
+
+-(void) populateRoutes {
+    
+    if (start_.latitude == 0) {
+        [self performSelector:@selector(populateRoutes) withObject:nil afterDelay:0.5];
+    } else {
+        GoogleDirectionsService *gds = [[GoogleDirectionsService alloc] init];
+
+        [gds queryDirections:@"driving" withStart:start_ andEnd:end_ withSelector:@selector(addToList:) andDelegate:self];
+        [gds queryDirections:@"walking" withStart:start_ andEnd:end_ withSelector:@selector(addToList:) andDelegate:self];
+        [gds queryDirections:@"bicycling" withStart:start_ andEnd:end_ withSelector:@selector(addToList:) andDelegate:self];
+        [gds queryDirections:@"transit" withStart:start_ andEnd:end_ withSelector:@selector(addToList:) andDelegate:self];
+
+    }
+}
+
+-(void) addToList :(NSDictionary *) dict {
+    NSLog(@"HI");
+    NSArray *routes = [dict objectForKey:@"routes"];
+    if ([routes count] > 0) {
+        NSDictionary *route = [routes objectAtIndex:0];
+        NSArray *legs = [route objectForKey:@"legs"];
+        NSDictionary *leg = [legs objectAtIndex:0];
+        NSDictionary *distance = [leg objectForKey:@"distance"];
+        NSDictionary *duration = [leg objectForKey:@"duration"];
+        NSDictionary *step = [[leg objectForKey:@"steps"] objectAtIndex:0];
+        NSString *modeOfTransport = [step objectForKey:@"travel_mode"];
+        
+        
+        Route *r = [[Route alloc] init];
+        
+        if ([modeOfTransport isEqualToString:@"DRIVING"]) {
+            r.modeOfTransport = @"Car";
+        } else if ([modeOfTransport isEqualToString:@"WALKING"]) {
+            r.modeOfTransport = @"Walking";
+            r.levelOfHarm = 1;
+        } else if ([modeOfTransport isEqualToString:@"TRANSIT"]) {
+            r.modeOfTransport = @"Public Transit";
+        } else {
+            r.modeOfTransport = @"Cycling";
+            r.levelOfHarm = 1;
+        }
+        [r setFact];
+        r.travelTime = [duration objectForKey:@"text"];
+        r.distance = [[duration objectForKey:@"value"] integerValue];
+
+        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:self.dataSource];
+        [tempArray addObject:r];
+        
+        self.dataSource = tempArray;
+        
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.dataSource count]-1 inSection:0];
+        [self.tableView beginUpdates];
+        
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView endUpdates];
+
+        
+    }
+    count++;
+    if (count >= 4) {
+        [self hideLoadingView];
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //check if the index actually exists
+    if(indexPath.row == selectedRowIndex) {
+        return 260;
+    }
+    return 100;
+}
+
 
 -(void) saveStartLocation: (CLLocationCoordinate2D) start andEndLocation: (CLLocationCoordinate2D) end {
     start_ = start;
@@ -59,26 +169,26 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        Route *bus = [[Route alloc] init];
-        bus.modeOfTransport = @"Public Transit";
-        bus.travelTime = @"(1 hr 30 min)";
-        bus.distance = 30;
-        
-        Route *bus2 = [[Route alloc] init];
-        bus2.modeOfTransport = @"Walking";
-        bus2.travelTime = @"(2 hr 5 min)";
-        bus2.distance = .3;
-        
-        Route *bus3 = [[Route alloc] init];
-        bus3.modeOfTransport = @"Cycling";
-        bus3.travelTime = @"(2 hr 3 min)";
-        bus3.distance = 3.5;
-        
-        [bus setFact];
-        [bus2 setFact];
-        [bus3 setFact];
-        NSArray *array = [NSArray arrayWithObjects:bus, bus2, bus3, nil];
-        self.dataSource = array;
+//        Route *bus = [[Route alloc] init];
+//        bus.modeOfTransport = @"Public Transit";
+//        bus.travelTime = @"(1 hr 30 min)";
+//        bus.distance = 30;
+//        
+//        Route *bus2 = [[Route alloc] init];
+//        bus2.modeOfTransport = @"Walking";
+//        bus2.travelTime = @"(2 hr 5 min)";
+//        bus2.distance = .3;
+//        
+//        Route *bus3 = [[Route alloc] init];
+//        bus3.modeOfTransport = @"Cycling";
+//        bus3.travelTime = @"(2 hr 3 min)";
+//        bus3.distance = 3.5;
+//        
+//        [bus setFact];
+//        [bus2 setFact];
+//        [bus3 setFact];
+//        NSArray *array = [NSArray arrayWithObjects:bus, bus2, bus3, nil];
+//        self.dataSource = array;
     }
     return self;
 }
@@ -99,20 +209,62 @@
         cell = self.directionCell;
         self.directionCell = nil;
     }
+    
+
     Route *route = [dataSource objectAtIndex:indexPath.row];
-    UILabel *label = (UILabel *) [cell viewWithTag:1];
+
+//    UILabel *label = (UILabel *) [cell viewWithTag:1];
    
-    UIImageView *imageView = (UIImageView *) [cell viewWithTag:2];
+    UIImageView *imageView = (UIImageView *) [cell viewWithTag:1];
+    UILabel *money = (UILabel *) [cell viewWithTag:2];
     UITextView *textView = (UITextView *) [cell viewWithTag:3];
     UILabel *timeLbl = (UILabel *) [cell viewWithTag:4];
+    UILabel *caloriesLbl = (UILabel *) [cell viewWithTag:6];
 
+    money.backgroundColor = [UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9];
+    [money.layer setCornerRadius:32.0];
+    money.text = @"$500";
     timeLbl.text = route.travelTime;
-    imageView.image = [UIImage imageNamed:@"yellow.png"];
+//    imageView.image = [UIImage imageNamed:@"yellow.png"];
     textView.text = route.energyFact;
-    label.text = route.modeOfTransport;
+    
+    [caloriesLbl setText:@"200"];
 
+
+    
+    if ([route.modeOfTransport isEqualToString:@"Car"]) {
+        [imageView setImage:[UIImage imageNamed:@"car.png"]];
+
+    } else if ([route.modeOfTransport isEqualToString:@"Walking"]) {
+        [imageView setImage:[UIImage imageNamed:@"walking.png"]];
+
+    } else if ([route.modeOfTransport isEqualToString:@"Public Transit"]) {
+        [imageView setImage:[UIImage imageNamed:@"transit.png"]];
+
+    } else {
+        [imageView setImage:[UIImage imageNamed:@"cycling.png"]];
+
+    }
+//    switch(route.levelOfHarm) {
+//        case 1:
+//            cell.backgroundColor = [UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.2];
+//            break;
+//        default:
+//            break;
+//    }
+//    cell.backgroundColor = cell.contentView.backgroundColor;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    
+    CGRect shadowFrame = cell.layer.bounds;
+    CGPathRef shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
+    cell.layer.shadowPath = shadowPath;
+    cell.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    cell.clipsToBounds = YES;
     return cell;
 }
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -136,6 +288,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    selectedRowIndex = indexPath.row;
+    [tableView beginUpdates];
+    [tableView endUpdates];
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

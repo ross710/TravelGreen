@@ -23,6 +23,11 @@
 		8CB89BF218F046A9008B20C4 /* TravelGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */; };
 		8CB89C3518F0C83B008B20C4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89C3318F0C83A008B20C4 /* LoginViewController.m */; };
 		8CB89C3618F0C83B008B20C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89C3418F0C83A008B20C4 /* LoginViewController.xib */; };
+		915DFFCB18F0F8BB003A54A1 /* walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC718F0F8BB003A54A1 /* walking.png */; };
+		915DFFCC18F0F8BB003A54A1 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC818F0F8BB003A54A1 /* car.png */; };
+		915DFFCD18F0F8BB003A54A1 /* cycling.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC918F0F8BB003A54A1 /* cycling.png */; };
+		915DFFCE18F0F8BB003A54A1 /* transit.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFCA18F0F8BB003A54A1 /* transit.png */; };
+		915DFFD718F10616003A54A1 /* flame_solid.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFD618F10616003A54A1 /* flame_solid.png */; };
 		91DA8C9018F05986009CC256 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */; };
 		91DA8C9318F05BB0009CC256 /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */; };
 		91DA8C9A18F0B776009CC256 /* DirectionsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C9818F0B776009CC256 /* DirectionsTableView.xib */; };
@@ -81,6 +86,11 @@
 		8CB89C3218F0C83A008B20C4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8CB89C3318F0C83A008B20C4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8CB89C3418F0C83A008B20C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		915DFFC718F0F8BB003A54A1 /* walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walking.png; sourceTree = "<group>"; };
+		915DFFC818F0F8BB003A54A1 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		915DFFC918F0F8BB003A54A1 /* cycling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycling.png; sourceTree = "<group>"; };
+		915DFFCA18F0F8BB003A54A1 /* transit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transit.png; sourceTree = "<group>"; };
+		915DFFD618F10616003A54A1 /* flame_solid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flame_solid.png; sourceTree = "<group>"; };
 		91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		91DA8C9118F05BB0009CC256 /* GoogleDirectionsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleDirectionsService.h; sourceTree = "<group>"; };
 		91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleDirectionsService.m; sourceTree = "<group>"; };
@@ -211,6 +221,7 @@
 				91DA8CA318F0B7BC009CC256 /* RouteDetailsViewController.h */,
 				91DA8CA418F0B7BC009CC256 /* RouteDetailsViewController.m */,
 				91DA8C9E18F0B7A9009CC256 /* yellow.png */,
+				915DFFC618F0F8AE003A54A1 /* Images */,
 				91DA8C9718F0B765009CC256 /* XIBs */,
 				8CB89BDE18F046A9008B20C4 /* Images.xcassets */,
 				8CB89BCA18F046A9008B20C4 /* Supporting Files */,
@@ -245,6 +256,18 @@
 				8CB89BEE18F046A9008B20C4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		915DFFC618F0F8AE003A54A1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				915DFFD618F10616003A54A1 /* flame_solid.png */,
+				915DFFC718F0F8BB003A54A1 /* walking.png */,
+				915DFFC818F0F8BB003A54A1 /* car.png */,
+				915DFFC918F0F8BB003A54A1 /* cycling.png */,
+				915DFFCA18F0F8BB003A54A1 /* transit.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		91DA8C9718F0B765009CC256 /* XIBs */ = {
@@ -336,13 +359,18 @@
 			files = (
 				8CB89C3618F0C83B008B20C4 /* LoginViewController.xib in Resources */,
 				8CB89BDA18F046A9008B20C4 /* Main_iPad.storyboard in Resources */,
+				915DFFD718F10616003A54A1 /* flame_solid.png in Resources */,
 				91DA8CA018F0B7A9009CC256 /* yellow.png in Resources */,
 				91DA8C9A18F0B776009CC256 /* DirectionsTableView.xib in Resources */,
 				8CB89BDF18F046A9008B20C4 /* Images.xcassets in Resources */,
+				915DFFCD18F0F8BB003A54A1 /* cycling.png in Resources */,
 				91DA8C9018F05986009CC256 /* Main_iPhone.storyboard in Resources */,
 				91DA8C9B18F0B776009CC256 /* DirectionsTableViewCell.xib in Resources */,
 				8CB89BCE18F046A9008B20C4 /* InfoPlist.strings in Resources */,
+				915DFFCB18F0F8BB003A54A1 /* walking.png in Resources */,
 				91DA8CA818F0B7BC009CC256 /* RouteDetailsViewController.xib in Resources */,
+				915DFFCC18F0F8BB003A54A1 /* car.png in Resources */,
+				915DFFCE18F0F8BB003A54A1 /* transit.png in Resources */,
 				91E0E4E018F04CE600513034 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

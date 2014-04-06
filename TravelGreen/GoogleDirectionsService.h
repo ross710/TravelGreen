@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+
 
 @interface GoogleDirectionsService : NSObject
 
@@ -21,6 +23,12 @@
       andLongitude : (CGFloat) longitude
       withSelector : (SEL) selector
        andDelegate : (id) delegate;
+
+-(void) queryDirections: (NSString*) mode
+             withStart : (CLLocationCoordinate2D) start
+                andEnd : (CLLocationCoordinate2D) end
+          withSelector : (SEL) selector
+           andDelegate : (id) delegate;
 
 -(void) queryDirections: (NSString*) mode
      withLatitudeStart : (CGFloat) latitudeStart

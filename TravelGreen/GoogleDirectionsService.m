@@ -16,8 +16,9 @@
 
 static NSString *baseGoogleMapsURL = @"http://maps.googleapis.com/maps/api/directions/json?";
 static NSString *baseURL = @"https://maps.googleapis.com/maps/api/";
-static NSString *apiKey = @"AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8";
-
+static NSString *apiKey = @"AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8";
+//AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8
+//AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8
 //https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Amoeba&types=establishment&location=37.76999,-122.44696&radius=500&sensor=true&key=AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8
 
 
@@ -96,6 +97,21 @@ static NSString *apiKey = @"AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8";
     
     [self query:requestString withSelector:selector andDelegate:delegate];
 
+}
+
+
+-(void) queryDirections: (NSString*) mode
+     withStart : (CLLocationCoordinate2D) start
+       andEnd : (CLLocationCoordinate2D) end
+          withSelector : (SEL) selector
+           andDelegate : (id) delegate {
+    [self queryDirections:mode
+        withLatitudeStart:start.latitude
+        andLongitudeStart:start.longitude
+          withLatitudeEnd:end.latitude
+          andLongitudeEnd:end.longitude
+             withSelector:selector
+              andDelegate:delegate];
 }
 
 -(void) queryDirections: (NSString*) mode
