@@ -17,7 +17,7 @@
     [GMSServices provideAPIKey:@"AIzaSyBeiruW8tn-9bwuHNqp65nkF7LKc7dCfmE"];
     
     LoginViewController *lvc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:[NSBundle mainBundle]];
-    self.window.rootViewController = lvc;
+//    self.window.rootViewController = lvc;
 
 
     

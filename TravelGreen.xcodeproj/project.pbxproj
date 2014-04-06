@@ -26,7 +26,6 @@
 		91086B8618F18C4C00D3D8F6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91086B7F18F18C4C00D3D8F6 /* LoginViewController.xib */; };
 		91086B8718F18C4C00D3D8F6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 91086B8118F18C4C00D3D8F6 /* User.m */; };
 		91086B8818F18C4C00D3D8F6 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91086B8318F18C4C00D3D8F6 /* UserProfileViewController.m */; };
-		91086B8918F18C4C00D3D8F6 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91086B8418F18C4C00D3D8F6 /* UserProfileViewController.xib */; };
 		9159F35418F19A350077A4E2 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F34E18F19A350077A4E2 /* map@2x.png */; };
 		9159F35518F19A350077A4E2 /* leaderboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F34F18F19A350077A4E2 /* leaderboard@2x.png */; };
 		9159F35618F19A350077A4E2 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F35018F19A350077A4E2 /* profile.png */; };
@@ -103,7 +102,6 @@
 		91086B8118F18C4C00D3D8F6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		91086B8218F18C4C00D3D8F6 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		91086B8318F18C4C00D3D8F6 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
-		91086B8418F18C4C00D3D8F6 /* UserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
 		9159F34E18F19A350077A4E2 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		9159F34F18F19A350077A4E2 /* leaderboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaderboard@2x.png"; sourceTree = "<group>"; };
 		9159F35018F19A350077A4E2 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 				91086B8118F18C4C00D3D8F6 /* User.m */,
 				91086B8218F18C4C00D3D8F6 /* UserProfileViewController.h */,
 				91086B8318F18C4C00D3D8F6 /* UserProfileViewController.m */,
-				91086B8418F18C4C00D3D8F6 /* UserProfileViewController.xib */,
 				915DFFC618F0F8AE003A54A1 /* Images */,
 				91DA8C9718F0B765009CC256 /* XIBs */,
 				8CB89BDE18F046A9008B20C4 /* Images.xcassets */,
@@ -407,7 +404,6 @@
 				8CB89BDF18F046A9008B20C4 /* Images.xcassets in Resources */,
 				915DFFCD18F0F8BB003A54A1 /* cycling.png in Resources */,
 				91DA8C9018F05986009CC256 /* Main_iPhone.storyboard in Resources */,
-				91086B8918F18C4C00D3D8F6 /* UserProfileViewController.xib in Resources */,
 				91DA8C9B18F0B776009CC256 /* DirectionsTableViewCell.xib in Resources */,
 				8CB89BCE18F046A9008B20C4 /* InfoPlist.strings in Resources */,
 				915DFFCB18F0F8BB003A54A1 /* walking.png in Resources */,

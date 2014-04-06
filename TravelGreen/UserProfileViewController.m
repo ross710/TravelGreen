@@ -8,6 +8,7 @@
 
 #import "UserProfileViewController.h"
 #import "AppDelegate.h"
+#import "Route.h"
 
 @interface UserProfileViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *lblCals;
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblCycled;
 @property (weak, nonatomic) IBOutlet UILabel *lblDriven;
 @property (weak, nonatomic) IBOutlet UILabel *lblTransit;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -34,12 +36,27 @@
 {
     [super viewDidLoad];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
+//    self.scrollView.contentSize = CGSizeMake(320, 454);
+//    self.view = self.scrollView;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editProfile:)] ;
     self.navigationItem.title = @"My Profile";
+    
+    
     if (appDelegate.user) {
-        self.navigationItem.title = appDelegate.user.username;
+        User *user = appDelegate.user;
+        self.navigationItem.title = user.username;
 
+        
+        NSInteger cals = [Route walkCals:user.milesWalked] + [Route bikeCals:user.bikeMpg andDistance:user.milesBiked];
+        self.lblCals.text = [NSString stringWithFormat:@"%d", cals];
+        
+        CGFloat money = [Route gasMoney:user.carMpg andDistance:(user.milesBiked + user.milesDriven)];
+        self.lblMoney.text = [NSString stringWithFormat:@"$%.2f", money];
+        
+        self.lblWalked.text = [NSString stringWithFormat:@"%d Miles Walked", user.milesWalked];
+        self.lblCycled.text = [NSString stringWithFormat:@"%d Miles Biked", user.milesBiked];
+        self.lblDriven.text = [NSString stringWithFormat:@"%d Miles Driven", user.milesDriven];
+        self.lblTransit.text = [NSString stringWithFormat:@"%d Miles on Public Transit", user.milesPt];
         
         
         
