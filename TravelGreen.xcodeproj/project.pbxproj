@@ -21,7 +21,6 @@
 		8CB89BE818F046A9008B20C4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC718F046A9008B20C4 /* UIKit.framework */; };
 		8CB89BF018F046A9008B20C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BEE18F046A9008B20C4 /* InfoPlist.strings */; };
 		8CB89BF218F046A9008B20C4 /* TravelGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */; };
-		8CB89C3518F0C83B008B20C4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89C3318F0C83A008B20C4 /* LoginViewController.m */; };
 		8CB89C3618F0C83B008B20C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89C3418F0C83A008B20C4 /* LoginViewController.xib */; };
 		91086B8518F18C4C00D3D8F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91086B7E18F18C4C00D3D8F6 /* LoginViewController.m */; };
 		91086B8618F18C4C00D3D8F6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91086B7F18F18C4C00D3D8F6 /* LoginViewController.xib */; };
@@ -414,7 +413,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				91086B8718F18C4C00D3D8F6 /* User.m in Sources */,
-				8CB89C3518F0C83B008B20C4 /* LoginViewController.m in Sources */,
 				8CB89BDD18F046A9008B20C4 /* MapViewController.m in Sources */,
 				91DA8C9F18F0B7A9009CC256 /* DirectionsTableViewController.m in Sources */,
 				8CB89BD418F046A9008B20C4 /* AppDelegate.m in Sources */,
