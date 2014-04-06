@@ -221,10 +221,11 @@
 - (IBAction)onSubmit:(id)sender {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    UITableViewCell* cell = (UITableViewCell*)[sender superview];
-    int row = [self.tableView indexPathForCell:cell].row;
+    UIButton *button = (UIButton *)sender;
+    CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
     
-    Route *r = [self.dataSource objectAtIndex:row];
+    Route *r = [self.dataSource objectAtIndex:indexPath.row];
     
     NSMutableURLRequest *request = [NSMutableURLRequest
 									requestWithURL:[NSURL URLWithString:@"http://localhost/Hackathon/login.php"]];
@@ -383,10 +384,13 @@
 }
 
 -(IBAction)gotoGoogleMaps:(id)sender {
-    UITableViewCell* cell = (UITableViewCell*)[sender superview];
-    int row = [self.tableView indexPathForCell:cell].row;
+
+
+    UIButton *button = (UIButton *)sender;
+    CGRect buttonFrame = [button convertRect:button.bounds toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonFrame.origin];
     
-    Route *r = [self.dataSource objectAtIndex:row];
+    Route *r = [self.dataSource objectAtIndex:indexPath.row];
     
 
     NSURL *testURL = [NSURL URLWithString:@"comgooglemaps-x-callback://"];
@@ -398,6 +402,7 @@
                                    end_.latitude,
                                    end_.longitude,
                                    [r.modeOfTransport lowercaseString]];
+        NSLog(@"requestString %@", requestString);
         NSURL *directionsURL = [NSURL URLWithString:requestString];
         [[UIApplication sharedApplication] openURL:directionsURL];
     } else {
