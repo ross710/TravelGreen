@@ -21,6 +21,8 @@
 		8CB89BE818F046A9008B20C4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB89BC718F046A9008B20C4 /* UIKit.framework */; };
 		8CB89BF018F046A9008B20C4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89BEE18F046A9008B20C4 /* InfoPlist.strings */; };
 		8CB89BF218F046A9008B20C4 /* TravelGreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */; };
+		8CB89C3518F0C83B008B20C4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB89C3318F0C83A008B20C4 /* LoginViewController.m */; };
+		8CB89C3618F0C83B008B20C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB89C3418F0C83A008B20C4 /* LoginViewController.xib */; };
 		91DA8C9018F05986009CC256 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */; };
 		91DA8C9318F05BB0009CC256 /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */; };
 		91DA8C9A18F0B776009CC256 /* DirectionsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91DA8C9818F0B776009CC256 /* DirectionsTableView.xib */; };
@@ -76,6 +78,9 @@
 		8CB89BED18F046A9008B20C4 /* TravelGreenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravelGreenTests-Info.plist"; sourceTree = "<group>"; };
 		8CB89BEF18F046A9008B20C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8CB89BF118F046A9008B20C4 /* TravelGreenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelGreenTests.m; sourceTree = "<group>"; };
+		8CB89C3218F0C83A008B20C4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		8CB89C3318F0C83A008B20C4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8CB89C3418F0C83A008B20C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		91DA8C9118F05BB0009CC256 /* GoogleDirectionsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleDirectionsService.h; sourceTree = "<group>"; };
 		91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleDirectionsService.m; sourceTree = "<group>"; };
@@ -191,6 +196,8 @@
 			children = (
 				8CB89BD218F046A9008B20C4 /* AppDelegate.h */,
 				8CB89BD318F046A9008B20C4 /* AppDelegate.m */,
+				8CB89C3218F0C83A008B20C4 /* LoginViewController.h */,
+				8CB89C3318F0C83A008B20C4 /* LoginViewController.m */,
 				91DA8C8F18F05986009CC256 /* Main_iPhone.storyboard */,
 				8CB89BD818F046A9008B20C4 /* Main_iPad.storyboard */,
 				8CB89BDB18F046A9008B20C4 /* MapViewController.h */,
@@ -203,7 +210,6 @@
 				91DA8CA218F0B7BC009CC256 /* Route.m */,
 				91DA8CA318F0B7BC009CC256 /* RouteDetailsViewController.h */,
 				91DA8CA418F0B7BC009CC256 /* RouteDetailsViewController.m */,
-				91DA8CA518F0B7BC009CC256 /* RouteDetailsViewController.xib */,
 				91DA8C9E18F0B7A9009CC256 /* yellow.png */,
 				91DA8C9718F0B765009CC256 /* XIBs */,
 				8CB89BDE18F046A9008B20C4 /* Images.xcassets */,
@@ -244,7 +250,9 @@
 		91DA8C9718F0B765009CC256 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				8CB89C3418F0C83A008B20C4 /* LoginViewController.xib */,
 				91DA8C9818F0B776009CC256 /* DirectionsTableView.xib */,
+				91DA8CA518F0B7BC009CC256 /* RouteDetailsViewController.xib */,
 				91DA8C9918F0B776009CC256 /* DirectionsTableViewCell.xib */,
 			);
 			name = XIBs;
@@ -326,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB89C3618F0C83B008B20C4 /* LoginViewController.xib in Resources */,
 				8CB89BDA18F046A9008B20C4 /* Main_iPad.storyboard in Resources */,
 				91DA8CA018F0B7A9009CC256 /* yellow.png in Resources */,
 				91DA8C9A18F0B776009CC256 /* DirectionsTableView.xib in Resources */,
@@ -353,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB89C3518F0C83B008B20C4 /* LoginViewController.m in Sources */,
 				8CB89BDD18F046A9008B20C4 /* MapViewController.m in Sources */,
 				91DA8C9F18F0B7A9009CC256 /* DirectionsTableViewController.m in Sources */,
 				8CB89BD418F046A9008B20C4 /* AppDelegate.m in Sources */,
