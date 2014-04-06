@@ -187,18 +187,18 @@
 
 - (void)parseData
 {
-    //NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:self.responseData];
+    //NSArray *jsonResult = [NSKeyedUnarchiver unarchiveObjectWithData:self.responseData];
     NSError *jsonError = nil;
     id jsonResult = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonError];
     
     if(jsonResult != nil)
     {
-        
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         //update model using json result
         NSDictionary *dict = jsonResult;
         User *user = [[User alloc] init];
         
-        user.userId = [dict objectForKey:@"user_Id"];
+        user.userId = appDelegate.user.userId;
         user.username = [dict objectForKey:@"username"];
         user.weight = [[dict objectForKey:@"weight"] intValue];
         user.sex = [dict objectForKey:@"sex"];
@@ -211,12 +211,23 @@
         user.bikeMpg = [[dict objectForKey:@"bike_speed"] intValue];
         
         NSLog(@"%@", user.userId);
-        //display popup
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //Code that presents or dismisses a view controller here
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Submit" message:@"Travel data updated" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-        });
+        
+        /*User *ross = [[User alloc] init];
+         User *jacob = [[User alloc] init];
+         User *tim = [[User alloc] init];*/
+        
+        
+        /*ross.calories = 2352;
+         jacob.calories = 24320;
+         tim.calories = 405;
+         user.calories = appDelegate.user.calories + 29309;
+         
+         ross.treesDestroyed = 40;
+         jacob.treesDestroyed = 20;
+         tim.treesDestroyed = 132;
+         user.treesDestroyed = 5;*/
+        
+        appDelegate.user = user;
     }
 }
 

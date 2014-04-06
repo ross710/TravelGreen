@@ -16,7 +16,7 @@
 
 static NSString *baseGoogleMapsURL = @"http://maps.googleapis.com/maps/api/directions/json?";
 static NSString *baseURL = @"https://maps.googleapis.com/maps/api/";
-static NSString *apiKey = @"AIzaSyAHwsKlHaHA_4BvvEN-LwpfEMEXjXwZF8M";
+static NSString *apiKey = @"AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8";
 //AIzaSyAHwsKlHaHA_4BvvEN-LwpfEMEXjXwZF8M
 //AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8
 //AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8
