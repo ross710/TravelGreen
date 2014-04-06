@@ -145,7 +145,7 @@ static NSString *apiKey = @"AIzaSyAHwsKlHaHA_4BvvEN-LwpfEMEXjXwZF8M";
                                (long)departure_time,
                                apiKey];
     
-    NSLog(@"%@", requestString);
+//    NSLog(@"%@", requestString);
     [self query:requestString withSelector:selector andDelegate:delegate];
     
 }

@@ -26,6 +26,7 @@
 +(double) gasGallons:(int) mpg andDistance: (double) distanceInMiles;
 
 +(int) walkCals:(double) distanceInMiles;
++(int) bikeCals: (int) weight andDistance: (double) distance;
 +(double) treeAcres_inOneDay:(double) c_emmision;
 
 @end

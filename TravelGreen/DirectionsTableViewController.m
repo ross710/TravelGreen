@@ -15,6 +15,8 @@
 @interface DirectionsTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableViewCell *directionCell;
 //@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableData *responseData;
+
 
 @end
 
@@ -105,14 +107,16 @@
 
 -(void) selectWalking {
     if (self.dataSource.count > 0) {
-        NSInteger count = 0;
+        NSInteger c = 0;
         for (Route *route in self.dataSource) {
             if ([route.modeOfTransport isEqualToString:@"WALKING"]) {
-                NSIndexPath *path = [NSIndexPath indexPathForRow:count inSection:0];
+                NSIndexPath *path = [NSIndexPath indexPathForRow:c inSection:0];
                 [self.tableView selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionNone];
+                [self tableView:self.tableView didSelectRowAtIndexPath:path];
+
                 break;
             }
-            count++;
+            c++;
         }
     }
 }
@@ -163,6 +167,83 @@
     }
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    self.responseData = [NSMutableData data];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.responseData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"response data - %@", [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding]);
+    [self parseData];
+}
+
+- (void)parseData
+{
+    //NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:self.responseData];
+    NSError *jsonError = nil;
+    id jsonResult = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&jsonError];
+    
+    if(jsonResult != nil)
+    {
+        
+        //update model using json result
+        NSDictionary *dict = jsonResult;
+        User *user = [[User alloc] init];
+        
+        user.userId = [dict objectForKey:@"user_Id"];
+        user.username = [dict objectForKey:@"username"];
+        user.weight = [[dict objectForKey:@"weight"] intValue];
+        user.sex = [dict objectForKey:@"sex"];
+        user.carbonEmission = [[dict objectForKey:@"carbon_emission"] intValue];
+        user.milesBiked = [[dict objectForKey:@"miles_biked"] intValue];
+        user.milesWalked = [[dict objectForKey:@"miles_walked"] intValue];
+        user.milesDriven = [[dict objectForKey:@"miles_driven"] intValue];
+        user.milesPt = [[dict objectForKey:@"miles_pt"] intValue];
+        user.carMpg = [[dict objectForKey:@"car_mpg"] intValue];
+        user.bikeMpg = [[dict objectForKey:@"bike_speed"] intValue];
+        
+        NSLog(@"%@", user.userId);
+        //display popup
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //Code that presents or dismisses a view controller here
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Submit" message:@"Travel data updated" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        });
+    }
+}
+
+- (IBAction)onSubmit:(id)sender {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    UITableViewCell* cell = (UITableViewCell*)[sender superview];
+    int row = [self.tableView indexPathForCell:cell].row;
+    
+    Route *r = [self.dataSource objectAtIndex:row];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest
+									requestWithURL:[NSURL URLWithString:@"http://localhost/Hackathon/login.php"]];
+    
+    NSString *format = [NSString stringWithFormat:@"user_id=%@&travel_type=%@&miles=%0.1f&carbon=%0.1f", appDelegate.user.userId, r.modeOfTransport, r.distance, r.carbonEmmision];
+    
+    NSString *params = [[NSString alloc] initWithFormat:format];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    if (!connection) {
+        // Release the receivedData object.
+        NSLog(@"connection failed");
+        
+        // Inform the user that the connection failed.
+    }
+    
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //check if the index actually exists
@@ -236,10 +317,16 @@
     UILabel *caloriesLbl = (UILabel *) [cell viewWithTag:6];
     UILabel *distanceLbl = (UILabel *) [cell viewWithTag:7];
     UIButton *directionsButton = (UIButton *) [cell viewWithTag:8];
-    
-    [directionsButton addTarget:self action:@selector(gotoGoogleMaps:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *submitButton = (UIButton *) [cell viewWithTag:11];
 
-    money.backgroundColor = [UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9];
+    UILabel *factLbl = (UILabel *) [cell viewWithTag:10];
+    
+    
+    factLbl.text = @"Emissions come up to: ";
+
+    [directionsButton addTarget:self action:@selector(gotoGoogleMaps:) forControlEvents:UIControlEventTouchUpInside];
+    [submitButton addTarget:self action:@selector(onSubmit:) forControlEvents:UIControlEventTouchUpInside];
+
     [money.layer setCornerRadius:32.0];
     
     
@@ -251,23 +338,30 @@
     
     if ([route.modeOfTransport isEqualToString:@"DRIVING"]) {
         [imageView setImage:[UIImage imageNamed:@"car.png"]];
+        money.backgroundColor = [UIColor colorWithRed:255.0/255 green:59.0/255 blue:48.0/255 alpha:0.9];
+        CGFloat moneySpent = [Route gasMoney:0 andDistance:route.distance];
+        money.text = [NSString stringWithFormat:@"-$%.2f", moneySpent];
 
     } else if ([route.modeOfTransport isEqualToString:@"WALKING"]) {
         [imageView setImage:[UIImage imageNamed:@"walking.png"]];
         CGFloat calories = [Route walkCals:route.distance];
         [caloriesLbl setText:[NSString stringWithFormat:@"%d", (int)calories]];
         
-        CGFloat moneySaved = [Route gasMoney:0 andDistance:route.distance];
-        money.text = [NSString stringWithFormat:@"$%.2f", moneySaved ];
+
+        money.backgroundColor = [UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9];
 
     } else if ([route.modeOfTransport isEqualToString:@"TRANSIT"]) {
         [imageView setImage:[UIImage imageNamed:@"transit.png"]];
+        money.backgroundColor = [UIColor colorWithRed:255.0/255 green:59.0/255 blue:48.0/255 alpha:0.9];
+        money.text = [NSString stringWithFormat:@"-$%.2f", 2.00];
+
 
     } else {
         [imageView setImage:[UIImage imageNamed:@"cycling.png"]];
-        CGFloat moneySaved = [Route gasMoney:0 andDistance:route.distance];
-        money.text = [NSString stringWithFormat:@"$%.2f", moneySaved ];
+        money.backgroundColor = [UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9];
 
+        CGFloat calories = [Route bikeCals:0 andDistance:route.distance];
+        [caloriesLbl setText:[NSString stringWithFormat:@"%d", (int)calories]];
     }
 //    switch(route.levelOfHarm) {
 //        case 1:

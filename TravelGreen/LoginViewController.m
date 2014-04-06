@@ -41,9 +41,8 @@
 {
     NSLog(@"response data - %@", [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding]);
     [self parseData];
-    
-    
 }
+
 - (void)parseData
 {
     //NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:self.responseData];
@@ -52,8 +51,8 @@
     
     if(jsonResult != nil)
     {
-
-            //update model using json result
+        
+        //update model using json result
         NSDictionary *dict = jsonResult;
         User *user = [[User alloc] init];
         
@@ -72,47 +71,22 @@
         NSLog(@"%@", user.userId);
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         appDelegate.user = user;
-    
+        
         //GOTO USER PROFILE
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        UITabBarController *vc = [storyboard instantiateInitialViewController];
+        vc.selectedIndex = 1;
+        
+        AppDelegate* appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        appdelegate.window.rootViewController = vc;
+
     }
 }
 
 - (void)initNetworkCommunication {
     
-
-    
-  /* NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://hackathon.jacob/Hackathon/login.php"]];
-    NSString *username = @"bess";
-    NSString *password = @"bess";
-    
-    NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 @"username", username,
-                                 @"password", password,
-                                 nil];
-    NSError *error;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
-    //[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:postData];
-    
-    
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    //[connection start];
-    if (!connection) {
-        // Release the receivedData object.
-        NSLog(@"connection failed");
-        
-        // Inform the user that the connection failed.
-    }
-    else
-    {
-        
-    }*/
-    
     NSMutableURLRequest *request = [NSMutableURLRequest
-									requestWithURL:[NSURL URLWithString:@"http://hackathon.jacob/Hackathon/login.php"]];
+									requestWithURL:[NSURL URLWithString:@"http://localhost/Hackathon/login.php"]];
     
     NSString *format = [NSString stringWithFormat:@"username=%@&password=%@", self._txtUsername.text, self._txtPassword.text];
     NSString *params = [[NSString alloc] initWithFormat:format];//@"username=bess&password=bess"];
@@ -126,7 +100,7 @@
         
         // Inform the user that the connection failed.
     }
-
+    
 }
 
 

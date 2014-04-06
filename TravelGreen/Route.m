@@ -90,4 +90,13 @@
     return(val);
     
 }
+
++(int) bikeCals: (int) weight andDistance: (double) distance {
+    if (weight == 0) {
+        weight = 160;
+    }
+    
+    double calsPerMile = (double) weight*0.25;
+    return (int)(distance *calsPerMile);
+}
 @end

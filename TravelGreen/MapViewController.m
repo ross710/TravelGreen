@@ -154,7 +154,7 @@
 -(void) showRouteButton {
     CGFloat heightOfButton = 48.0;
     CGRect endFrame = CGRectMake(routeButton_.frame.origin.x,
-                                 self.view.frame.size.height - heightOfButton,
+                                 self.view.frame.size.height - heightOfButton - 49,
                                  routeButton_.frame.size.width,
                                  heightOfButton);
     [UIView animateWithDuration:0.5 animations:^{
