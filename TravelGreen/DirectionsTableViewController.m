@@ -42,6 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     selectedRowIndex = -1;
     count = 0;
     [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
@@ -59,7 +60,7 @@
     loadingView_.frame = CGRectMake(screenWidth/2 - sideDimension/2, screenHeight/2 - sideDimension/2, sideDimension, sideDimension);
     [loadingView_.layer setCornerRadius:4.0];
     [loadingView_ startAnimating];
-    [loadingView_ setBackgroundColor:[UIColor colorWithWhite:0.7 alpha:0.7]];
+    [loadingView_ setBackgroundColor:[UIColor colorWithWhite:0.5 alpha:0.7]];
     
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     UIWindow *window = delegate.window;
@@ -103,34 +104,30 @@
 }
 
 -(void) addToList :(NSDictionary *) dict {
-    NSLog(@"HI");
+    
     NSArray *routes = [dict objectForKey:@"routes"];
     if ([routes count] > 0) {
         NSDictionary *route = [routes objectAtIndex:0];
+        
         NSArray *legs = [route objectForKey:@"legs"];
         NSDictionary *leg = [legs objectAtIndex:0];
         NSDictionary *distance = [leg objectForKey:@"distance"];
         NSDictionary *duration = [leg objectForKey:@"duration"];
         NSDictionary *step = [[leg objectForKey:@"steps"] objectAtIndex:0];
-        NSString *modeOfTransport = [step objectForKey:@"travel_mode"];
         
         
         Route *r = [[Route alloc] init];
+        r.modeOfTransport = [step objectForKey:@"travel_mode"];
         
-        if ([modeOfTransport isEqualToString:@"DRIVING"]) {
-            r.modeOfTransport = @"Car";
-        } else if ([modeOfTransport isEqualToString:@"WALKING"]) {
-            r.modeOfTransport = @"Walking";
-            r.levelOfHarm = 1;
-        } else if ([modeOfTransport isEqualToString:@"TRANSIT"]) {
-            r.modeOfTransport = @"Public Transit";
-        } else {
-            r.modeOfTransport = @"Cycling";
-            r.levelOfHarm = 1;
+        for (NSDictionary * step_ in [leg objectForKey:@"steps"]) {
+            if ([[step_ objectForKey:@"travel_mode"] isEqualToString:@"TRANSIT"]) {
+                r.modeOfTransport = @"TRANSIT";
+                break;
+            }
         }
-        [r setFact];
+
         r.travelTime = [duration objectForKey:@"text"];
-        r.distance = [[duration objectForKey:@"value"] integerValue];
+        r.distance = [[distance objectForKey:@"value"] floatValue]*0.000621371;
 
         NSMutableArray *tempArray = [NSMutableArray arrayWithArray:self.dataSource];
         [tempArray addObject:r];
@@ -150,6 +147,8 @@
         [self hideLoadingView];
     }
 }
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //check if the index actually exists
     if(indexPath.row == selectedRowIndex) {
@@ -220,29 +219,39 @@
     UITextView *textView = (UITextView *) [cell viewWithTag:3];
     UILabel *timeLbl = (UILabel *) [cell viewWithTag:4];
     UILabel *caloriesLbl = (UILabel *) [cell viewWithTag:6];
+    UILabel *distanceLbl = (UILabel *) [cell viewWithTag:7];
+    UIButton *directionsButton = (UIButton *) [cell viewWithTag:8];
+    
+    [directionsButton addTarget:self action:@selector(gotoGoogleMaps:) forControlEvents:UIControlEventTouchUpInside];
 
     money.backgroundColor = [UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9];
     [money.layer setCornerRadius:32.0];
-    money.text = @"$500";
+    
+    
     timeLbl.text = route.travelTime;
-//    imageView.image = [UIImage imageNamed:@"yellow.png"];
-    textView.text = route.energyFact;
+    distanceLbl.text = [NSString stringWithFormat:@"%.2f miles", route.distance];
     
-    [caloriesLbl setText:@"200"];
 
 
     
-    if ([route.modeOfTransport isEqualToString:@"Car"]) {
+    if ([route.modeOfTransport isEqualToString:@"DRIVING"]) {
         [imageView setImage:[UIImage imageNamed:@"car.png"]];
 
-    } else if ([route.modeOfTransport isEqualToString:@"Walking"]) {
+    } else if ([route.modeOfTransport isEqualToString:@"WALKING"]) {
         [imageView setImage:[UIImage imageNamed:@"walking.png"]];
+        CGFloat calories = [Route walkCals:route.distance];
+        [caloriesLbl setText:[NSString stringWithFormat:@"%d", (int)calories]];
+        
+        CGFloat moneySaved = [Route gasMoney:0 andDistance:route.distance];
+        money.text = [NSString stringWithFormat:@"$%.2f", moneySaved ];
 
-    } else if ([route.modeOfTransport isEqualToString:@"Public Transit"]) {
+    } else if ([route.modeOfTransport isEqualToString:@"TRANSIT"]) {
         [imageView setImage:[UIImage imageNamed:@"transit.png"]];
 
     } else {
         [imageView setImage:[UIImage imageNamed:@"cycling.png"]];
+        CGFloat moneySaved = [Route gasMoney:0 andDistance:route.distance];
+        money.text = [NSString stringWithFormat:@"$%.2f", moneySaved ];
 
     }
 //    switch(route.levelOfHarm) {
@@ -264,7 +273,42 @@
     return cell;
 }
 
+-(IBAction)gotoGoogleMaps:(id)sender {
+    UITableViewCell* cell = (UITableViewCell*)[sender superview];
+    int row = [self.tableView indexPathForCell:cell].row;
+    
+    Route *r = [self.dataSource objectAtIndex:row];
+    
 
+    NSURL *testURL = [NSURL URLWithString:@"comgooglemaps-x-callback://"];
+    if ([[UIApplication sharedApplication] canOpenURL:testURL]) {
+        NSString *requestString = [NSString
+                                   stringWithFormat:@"comgooglemaps-x-callback://?saddr=%f,%f&daddr=%f,%f&directionsmode=%@&x-success=sourceapp://?resume=true&x-source=TravelGreen",
+                                   start_.latitude,
+                                   start_.longitude,
+                                   end_.latitude,
+                                   end_.longitude,
+                                   [r.modeOfTransport lowercaseString]];
+        NSURL *directionsURL = [NSURL URLWithString:requestString];
+        [[UIApplication sharedApplication] openURL:directionsURL];
+    } else {
+        NSLog(@"Can't use comgooglemaps-x-callback:// on this device.");
+    }
+}
+
+//http://stackoverflow.com/questions/7399119/custom-uitableviewcell-button-action
+- (UITableViewCell *)parentCell
+{
+    UIView *superview = self.tableView.superview;
+    while( superview != nil ) {
+        if( [superview isKindOfClass:[UITableViewCell class]] )
+            return (UITableViewCell *)superview;
+        
+        superview = superview.superview;
+    }
+    
+    return nil;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

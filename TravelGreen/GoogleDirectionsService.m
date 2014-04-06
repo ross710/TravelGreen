@@ -16,7 +16,8 @@
 
 static NSString *baseGoogleMapsURL = @"http://maps.googleapis.com/maps/api/directions/json?";
 static NSString *baseURL = @"https://maps.googleapis.com/maps/api/";
-static NSString *apiKey = @"AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8";
+static NSString *apiKey = @"AIzaSyAHwsKlHaHA_4BvvEN-LwpfEMEXjXwZF8M";
+//AIzaSyAHwsKlHaHA_4BvvEN-LwpfEMEXjXwZF8M
 //AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8
 //AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8
 //https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Amoeba&types=establishment&location=37.76999,-122.44696&radius=500&sensor=true&key=AIzaSyB2vzAUIIPyjXG-bUeniwK3lSekjxNEgx8
@@ -127,12 +128,14 @@ static NSString *apiKey = @"AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8";
      * walking
      * transit
      * bicycling
+     *1396764740
+     *1343641500
      */
     
-    NSTimeInterval departure_time = [[NSDate date] timeIntervalSince1970];
+    NSTimeInterval departure_time = [[NSDate date] timeIntervalSince1970] + 1000;
     
     NSString *requestString = [NSString
-                               stringWithFormat:@"%@directions/json?origin=%f,%f&destination=%f,%f&mode=%@&departure_time%ld&sensor=false&key=%@",
+                               stringWithFormat:@"%@directions/json?origin=%f,%f&destination=%f,%f&mode=%@&departure_time=%ld&sensor=false&key=%@",
                                baseURL,
                                latitudeStart,
                                longitudeStart,
@@ -142,6 +145,7 @@ static NSString *apiKey = @"AIzaSyAYZB3iBgccjJuapzEfeuUAIXwy4RcRtv8";
                                (long)departure_time,
                                apiKey];
     
+    NSLog(@"%@", requestString);
     [self query:requestString withSelector:selector andDelegate:delegate];
     
 }

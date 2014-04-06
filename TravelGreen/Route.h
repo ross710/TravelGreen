@@ -20,4 +20,12 @@
 @property(nonatomic) float distance; //miles
 
 -(void) setFact;
++(int) carbon_emmission: (int) mpg andDistance: (double) distanceInMiles;
++(double) gasMoney: (int) mpg andDistance: (double) distanceInMiles;
+
++(double) gasGallons:(int) mpg andDistance: (double) distanceInMiles;
+
++(int) walkCals:(double) distanceInMiles;
++(double) treeAcres_inOneDay:(double) c_emmision;
+
 @end

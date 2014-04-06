@@ -33,9 +33,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.navigationController.navigationBar.hidden = YES;
-    
+//    [self.navigationController.navigationBar setTranslucent:NO];
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.3]];
+
+//    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.3]];
     
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
@@ -116,17 +118,7 @@
     //    [self queryAutocomplete:@"FOOD" withLatitude:42.3581 andLongitude:-71.0636];
     //
     
-    //    NSURL *testURL = [NSURL URLWithString:@"comgooglemaps-x-callback://"];
-    //    if ([[UIApplication sharedApplication] canOpenURL:testURL]) {
-    //        NSString *directionsRequest = @"comgooglemaps-x-callback://"
-    //        @"?daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York"
-    //        @"&x-success=sourceapp://?resume=true&x-source=TravelGreen";
-    //        NSURL *directionsURL = [NSURL URLWithString:directionsRequest];
-    //        [[UIApplication sharedApplication] openURL:directionsURL];
-    //    } else {
-    //        NSLog(@"Can't use comgooglemaps-x-callback:// on this device.");
-    //    }
-    //
+
     
     
     
