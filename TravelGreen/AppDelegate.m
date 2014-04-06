@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-
 @implementation AppDelegate {
 }
 

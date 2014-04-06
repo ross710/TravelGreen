@@ -103,6 +103,20 @@
     }
 }
 
+-(void) selectWalking {
+    if (self.dataSource.count > 0) {
+        NSInteger count = 0;
+        for (Route *route in self.dataSource) {
+            if ([route.modeOfTransport isEqualToString:@"WALKING"]) {
+                NSIndexPath *path = [NSIndexPath indexPathForRow:count inSection:0];
+                [self.tableView selectRowAtIndexPath:path animated:YES scrollPosition:UITableViewScrollPositionNone];
+                break;
+            }
+            count++;
+        }
+    }
+}
+
 -(void) addToList :(NSDictionary *) dict {
     
     NSArray *routes = [dict objectForKey:@"routes"];
@@ -145,6 +159,7 @@
     count++;
     if (count >= 4) {
         [self hideLoadingView];
+        [self selectWalking];
     }
 }
 
