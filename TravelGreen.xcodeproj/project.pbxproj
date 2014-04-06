@@ -32,6 +32,7 @@
 		9159F35718F19A350077A4E2 /* leaderboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F35118F19A350077A4E2 /* leaderboard.png */; };
 		9159F35818F19A350077A4E2 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F35218F19A350077A4E2 /* profile@2x.png */; };
 		9159F35918F19A350077A4E2 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 9159F35318F19A350077A4E2 /* map.png */; };
+		9159F35C18F1AE3A0077A4E2 /* LeaderboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9159F35B18F1AE3A0077A4E2 /* LeaderboardController.m */; };
 		915DFFCB18F0F8BB003A54A1 /* walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC718F0F8BB003A54A1 /* walking.png */; };
 		915DFFCC18F0F8BB003A54A1 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC818F0F8BB003A54A1 /* car.png */; };
 		915DFFCD18F0F8BB003A54A1 /* cycling.png in Resources */ = {isa = PBXBuildFile; fileRef = 915DFFC918F0F8BB003A54A1 /* cycling.png */; };
@@ -108,6 +109,8 @@
 		9159F35118F19A350077A4E2 /* leaderboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaderboard.png; sourceTree = "<group>"; };
 		9159F35218F19A350077A4E2 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
 		9159F35318F19A350077A4E2 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		9159F35A18F1AE3A0077A4E2 /* LeaderboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardController.h; sourceTree = "<group>"; };
+		9159F35B18F1AE3A0077A4E2 /* LeaderboardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardController.m; sourceTree = "<group>"; };
 		915DFFC718F0F8BB003A54A1 /* walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walking.png; sourceTree = "<group>"; };
 		915DFFC818F0F8BB003A54A1 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		915DFFC918F0F8BB003A54A1 /* cycling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycling.png; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				91DA8C9218F05BB0009CC256 /* GoogleDirectionsService.m */,
 				91DA8C9C18F0B7A9009CC256 /* DirectionsTableViewController.h */,
 				91DA8C9D18F0B7A9009CC256 /* DirectionsTableViewController.m */,
+				9159F35A18F1AE3A0077A4E2 /* LeaderboardController.h */,
+				9159F35B18F1AE3A0077A4E2 /* LeaderboardController.m */,
 				91DA8CA118F0B7BC009CC256 /* Route.h */,
 				91DA8CA218F0B7BC009CC256 /* Route.m */,
 				91DA8CA318F0B7BC009CC256 /* RouteDetailsViewController.h */,
@@ -432,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9159F35C18F1AE3A0077A4E2 /* LeaderboardController.m in Sources */,
 				91086B8718F18C4C00D3D8F6 /* User.m in Sources */,
 				8CB89BDD18F046A9008B20C4 /* MapViewController.m in Sources */,
 				91DA8C9F18F0B7A9009CC256 /* DirectionsTableViewController.m in Sources */,

@@ -13,6 +13,7 @@
 @property(nonatomic) id userId;
 @property(nonatomic) int weight;
 @property(nonatomic) int carbonEmission;
+@property(nonatomic) int treesDestroyed;
 @property(nonatomic) int milesWalked;
 @property(nonatomic) int milesBiked;
 @property(nonatomic) int milesDriven;

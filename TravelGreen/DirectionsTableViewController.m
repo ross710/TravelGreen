@@ -122,7 +122,9 @@
 }
 
 -(void) addToList :(NSDictionary *) dict {
-    
+    if (count >= 4) {
+        return;
+    }
     NSArray *routes = [dict objectForKey:@"routes"];
     if ([routes count] > 0) {
         NSDictionary *route = [routes objectAtIndex:0];

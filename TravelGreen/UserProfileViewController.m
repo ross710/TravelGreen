@@ -35,20 +35,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
 //    self.scrollView.contentSize = CGSizeMake(320, 454);
 //    self.view = self.scrollView;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editProfile:)] ;
     self.navigationItem.title = @"My Profile";
     
     
+    [self reloadUser];
+    
+    [self.lblMoney.layer setCornerRadius:68];
+    [self.lblMoney setBackgroundColor:[UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9]];
+    
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void) reloadUser {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
     if (appDelegate.user) {
         User *user = appDelegate.user;
         self.navigationItem.title = user.username;
-
+        
         
         NSInteger cals = [Route walkCals:user.milesWalked] + [Route bikeCals:user.bikeMpg andDistance:user.milesBiked];
-        self.lblCals.text = [NSString stringWithFormat:@"%d", cals];
+        self.lblCals.text = [NSString stringWithFormat:@"%ld", (long)cals];
         
         CGFloat money = [Route gasMoney:user.carMpg andDistance:(user.milesBiked + user.milesDriven)];
         self.lblMoney.text = [NSString stringWithFormat:@"$%.2f", money];
@@ -63,16 +74,6 @@
     } else {
         NSLog(@"No user");
     }
-    
-    [self.lblMoney.layer setCornerRadius:68];
-    [self.lblMoney setBackgroundColor:[UIColor colorWithRed:11.0/255 green:211.0/255 blue:24.0/255 alpha:0.9]];
-    
-    
-
-    
-    
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 -(IBAction)editProfile:(id)sender {
